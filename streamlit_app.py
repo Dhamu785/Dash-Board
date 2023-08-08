@@ -22,7 +22,7 @@ if f1 is not None:
     st.write(f"File name: {file_name}")
     df = pd.read_csv(file_name)
 else:
-    df = pd.read_csv("F:\\Codings\\Laptop coding\\Alfa TKG\\Alfa AI Team\\Kumar sir\\stremlit\\data.csv")
+    df = pd.read_csv("data.csv")
     st.write("Data loaded from local")
 # =============================================================================
 
