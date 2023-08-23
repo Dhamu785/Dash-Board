@@ -130,14 +130,18 @@ with col4:
 st.markdown("<h2 style='text-align: center; color: #0095eb;'>Overall Performance Hours</h2>", unsafe_allow_html=True)
 
 work_hours = df3.groupby('month')['total_work_time'].sum().rename('Total_hours').reset_index()
-wrk_hrs = px.bar(work_hours, x='month', y='Total_hours', title='Total Working Time', color_discrete_sequence=['#02c235'])
+work_hourss=work_hours.sort_values(by='Total_hours', ascending=False)
+print(work_hourss)
+wrk_hrs = px.bar(work_hourss, x='month', y='Total_hours', title='Total Working Time', color_discrete_sequence=['#02c235'])
 wrk_hrs.update_layout(title={'font':dict(size=25)},
                   title_font_family="Times New Roman",
                   title_font_color="#ffdd00")
 st.plotly_chart(wrk_hrs, use_container_width=True)
 ### Total Repair Hours
 work_repair_hours = df3.groupby('month')['total_repair_time'].sum().rename('Total_repair_hours').reset_index()
-wrk__rpe_hrs = px.bar(work_repair_hours, x='month', y='Total_repair_hours', title='Total Repair Time', color_discrete_sequence=['red'])
+work_repair_hourss=work_repair_hours.sort_values(by='Total_repair_hours', ascending=False)
+print(work_repair_hourss)
+wrk__rpe_hrs = px.bar(work_repair_hourss, x='month', y='Total_repair_hours', title='Total Repair Time', color_discrete_sequence=['red'])
 wrk__rpe_hrs.update_layout(title={'font':dict(size=25)},
                   title_font_family="Times New Roman",
                   title_font_color="#ffdd00")
@@ -160,7 +164,7 @@ with chart2:
     defected_products = df3.groupby('month')['defeacted_product'].sum().rename('Defected_products').reset_index()
     defected_productss = defected_products.sort_values(by='Defected_products', ascending=False)
     print( defected_productss)
-    defected_products = px.bar(defected_products, x='month', y='Defected_products', color_discrete_sequence=['red'], title="Defected Products")
+    defected_products = px.bar(defected_productss, x='month', y='Defected_products', color_discrete_sequence=['red'], title="Defected Products")
     st.plotly_chart(defected_products, use_container_width=True)
     
 # ========================================================================================================================
