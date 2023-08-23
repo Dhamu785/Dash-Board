@@ -158,6 +158,8 @@ with chart1:
 with chart2:
     # st.markdown("<h3 style='text-align: center; color: #0095eb;'>Defected products</h3>", unsafe_allow_html=True)
     defected_products = df3.groupby('month')['defeacted_product'].sum().rename('Defected_products').reset_index()
+    defected_productss = defected_products.sort_values(by='Defected_products', ascending=False)
+    print( defected_productss)
     defected_products = px.bar(defected_products, x='month', y='Defected_products', color_discrete_sequence=['red'], title="Defected Products")
     st.plotly_chart(defected_products, use_container_width=True)
     
