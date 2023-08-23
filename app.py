@@ -129,20 +129,20 @@ with col4:
 ### Total Working Hours
 st.markdown("<h2 style='text-align: center; color: #0095eb;'>Overall Performance Hours</h2>", unsafe_allow_html=True)
 
-work_hours = df3.groupby('month')['total_work_time'].sum().rename('Total_hours').reset_index()
-work_hourss=work_hours.sort_values(by='Total_hours', ascending=False)
-print(work_hourss)
-wrk_hrs = px.bar(work_hourss, x='month', y='Total_hours', title='Total Working Time', color_discrete_sequence=['#02c235'])
+work_hours = df3.groupby('month')['total_work_time'].sum().rename('Total  Hours').reset_index()
+work_hourss=work_hours.sort_values(by='Total  Hours', ascending=False)
+wrk_hrs = px.bar(work_hourss, x='month', y='Total  Hours', title='Total Working Time', color_discrete_sequence=['#02c235'])
 wrk_hrs.update_layout(title={'font':dict(size=25)},
+                      xaxis_title="Month",
                   title_font_family="Times New Roman",
                   title_font_color="#ffdd00")
 st.plotly_chart(wrk_hrs, use_container_width=True)
 ### Total Repair Hours
-work_repair_hours = df3.groupby('month')['total_repair_time'].sum().rename('Total_repair_hours').reset_index()
-work_repair_hourss=work_repair_hours.sort_values(by='Total_repair_hours', ascending=False)
-print(work_repair_hourss)
-wrk__rpe_hrs = px.bar(work_repair_hourss, x='month', y='Total_repair_hours', title='Total Repair Time', color_discrete_sequence=['red'])
+work_repair_hours = df3.groupby('month')['total_repair_time'].sum().rename('Total  Repair  Hours').reset_index()
+work_repair_hourss=work_repair_hours.sort_values(by='Total  Repair  Hours', ascending=False)
+wrk__rpe_hrs = px.bar(work_repair_hourss, x='month', y='Total  Repair  Hours', title='Total Repair Time', color_discrete_sequence=['red'])
 wrk__rpe_hrs.update_layout(title={'font':dict(size=25)},
+                           xaxis_title="Month",
                   title_font_family="Times New Roman",
                   title_font_color="#ffdd00")
 st.plotly_chart(wrk__rpe_hrs, use_container_width=True)
@@ -154,17 +154,23 @@ st.markdown("<h2 style='text-align: center; color: #0095eb;'>About Products</h2>
 chart1, chart2 = st.columns((2))
 with chart1:
     # st.markdown("<h3 style='text-align: center; color: #0095eb;'>Good products</h3>", unsafe_allow_html=True)
-    good_products = df3.groupby('month')['good_products'].sum().rename('Good_products').reset_index()
-    good_productss = good_products.sort_values(by='Good_products', ascending=False)
-    print(good_productss)
-    good_product = px.bar(good_productss, x='month', y='Good_products', color_discrete_sequence=['#02c235'], title="Good Products")
+    good_products = df3.groupby('month')['good_products'].sum().rename('Good  Products').reset_index()
+    good_productss = good_products.sort_values(by='Good  Products', ascending=False)
+    good_product = px.bar(good_productss, x='month', y='Good  Products', color_discrete_sequence=['#02c235'], title="Good Products")
+    good_product.update_layout(title={'font':dict(size=20)},
+                               xaxis_title="Month",
+                  title_font_family="Times New Roman",
+                  title_font_color="#ffdd00")
     st.plotly_chart(good_product, use_container_width=True)
 with chart2:
     # st.markdown("<h3 style='text-align: center; color: #0095eb;'>Defected products</h3>", unsafe_allow_html=True)
-    defected_products = df3.groupby('month')['defeacted_product'].sum().rename('Defected_products').reset_index()
-    defected_productss = defected_products.sort_values(by='Defected_products', ascending=False)
-    print( defected_productss)
-    defected_products = px.bar(defected_productss, x='month', y='Defected_products', color_discrete_sequence=['red'], title="Defected Products")
+    defected_products = df3.groupby('month')['defeacted_product'].sum().rename('Defected  Products').reset_index()
+    defected_productss = defected_products.sort_values(by='Defected  Products', ascending=False)
+    defected_products = px.bar(defected_productss, x='month', y='Defected  Products', color_discrete_sequence=['red'], title="Defected Products")
+    defected_products.update_layout(title={'font':dict(size=20)},
+                                    xaxis_title="Month",
+                  title_font_family="Times New Roman",
+                  title_font_color="#ffdd00")
     st.plotly_chart(defected_products, use_container_width=True)
     
 # ========================================================================================================================
